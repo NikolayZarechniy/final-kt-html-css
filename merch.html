@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IThub</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #f9f9f9;
+        color: #c300ff;
+    }
+
+    header {
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr;
+        align-items: center;
+        padding: 20px;
+        background: #000000;
+        border-bottom: 1px solid #dbdbdb;
+    }
+
+    header .logo {
+        width: 30%;
+    }
+
+    nav {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        font-weight: bold;
+    }
+
+    nav a {
+        text-decoration: none;
+        color: rgb(237, 192, 253);
+    }
+
+    nav a.active {
+        color: #c300ff;
+    }
+
+    .logo2 {
+        width: 10%;
+    }
+
+    .search {
+        display: flex;
+        justify-content: flex-end;
+        position: relative;
+        cursor: pointer;
+    }
+
+    #cart-count {
+        position: absolute;
+        top: -8px;
+        right: -10px;
+        background: red;
+        color: white;
+        font-size: 12px;
+        padding: 2px 6px;
+        border-radius: 50%;
+    }
+
+    .hero {
+        background: rgb(237, 192, 253);
+        height: 150px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: #000000;
+    }
+
+    .content {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .box {
+        background: #fff;
+        padding: 15px;
+        border: 1px solid #ddd;
+        text-align: center;
+    }
+
+    .box img {
+        width: 70%;
+        margin-bottom: 10px;
+    }
+
+    .box button {
+        padding: 10px 20px;
+        background: #c300ff;
+        border: none;
+        border-radius: 5px;
+        color: white;
+        cursor: pointer;
+    }
+
+    footer {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        background: #000000;
+        color: rgb(195, 0, 255);
+        padding: 20px;
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <img src="png\ithub.png" alt="" class="logo">
+    <nav>
+        <a href="first.html">ГЛАВНАЯ</a>
+        <a href="">О НАС</a>
+        <a href="">СЕРВИСЫ</a>
+        <a href="">ПАРТНЕРЫ</a>
+        <a class="active" href="">МЕРЧ</a>
+        <a href="">КОНТАКТЫ</a>
+    </nav>
+    <div class="search">
+        <i class="fa-solid fa-basket-shopping fa-xl" style="color: #ffffff;"></i>
+        <span id="cart-count">0</span>
+    </div>
+</header>
+
+<div class="hero">
+    <div>
+        <img src="png\ithub2.jpg" alt="" class="logo2">
+        <p>Изучаем языки программирования</p>
+    </div>
+</div>
+
+<div class="content">
+    <div class="box">
+        <img src="png\tshort.jpg" alt="">
+        <h3>Футболка IThub</h3>
+        <p>Цена: 1500 ₽</p>
+        <div class="controls">
+            <button onclick="removeFromCart()">−</button>
+            <button onclick="addToCart()">+</button>
+        </div>
+    </div>
+
+    <div class="box">
+        <img src="png\longsliv.jpg" alt="">
+        <h3>Лонгслив IThub</h3>
+        <p>Цена: 3000 ₽</p>
+        <div class="controls">
+            <button onclick="removeFromCart()">−</button>
+            <button onclick="addToCart()">+</button>
+        </div>
+    </div>
+
+    <div class="box">
+        <img src="png\shopper.jpg" alt="">
+        <h3>Шопер IThub</h3>
+        <p>Цена: 700 ₽</p>
+        <div class="controls">
+            <button onclick="removeFromCart()">−</button>
+            <button onclick="addToCart()">+</button>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div>
+        <h3>Контакты</h3>
+        <p>+79812782563 | saint_petersburg@it.hub.ru</p>
+    </div>
+    <div>
+        <h3>Социальные сети</h3>
+        <p><a href=""><i class="fa-brands fa-vk fa-xl" style="color: #c300ff;"></i></a>| <a href=""><i class="fa-brands fa-telegram fa-xl" style="color: #c300ff;"></i></a> | <a href=""><i class="fa-brands fa-tiktok fa-xl" style="color: #c300ff;"></i></a></p>
+    </div>
+</footer>
+<script>
+    let cartCount = 0;
+
+    function addToCart() {
+        cartCount++;
+        updateCart();
+    }
+
+    function removeFromCart() {
+        if (cartCount > 0) {
+            cartCount--;
+            updateCart();
+        }
+    }
+
+    function updateCart() {
+        document.getElementById("cart-count").textContent = cartCount;
+    }
+</script>
+
+</body>
+</html>
