@@ -6,31 +6,47 @@
 <title>IThub</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 <style>
+    main{
+        max-width: 100%;
+        background: rgb(215, 119, 250);
+    }
+    * {
+        box-sizing: border-box;
+    }
+
     body {
         margin: 0;
         font-family: Arial, sans-serif;
-        background: #f9f9f9;
+        background: rgb(215, 119, 250);
         color: #c300ff;
     }
 
     header {
-        display: grid;
-        grid-template-columns: 1fr 2fr 1fr;
-        align-items: center;
+        display: flex;
         padding: 20px;
+        gap: 10px;
         background: #000000;
-        border-bottom: 1px solid #dbdbdb;
+        justify-content: space-between;
+        align-items: center;
     }
 
-    header .logo {
-        width: 30%;
+    header > a {
+        width: 150px;
+        display: flex;
+    }
+    
+    .logo {
+        width: 100%;
+        height: auto;
     }
 
     nav {
         display: flex;
         justify-content: center;
-        gap: 10px;
+        gap: 20px;
+        color: rgb(237, 192, 253);
         font-weight: bold;
+        flex-wrap: wrap;
     }
 
     nav a {
@@ -42,21 +58,18 @@
         color: #c300ff;
     }
 
-    .logo2 {
-        width: 10%;
-    }
-
     .search {
         display: flex;
-        justify-content: flex-end;
+        align-items: center;
         position: relative;
+        padding-right: 10px;
         cursor: pointer;
     }
 
     #cart-count {
         position: absolute;
-        top: -8px;
-        right: -10px;
+        top: -5px;
+        right: -5px;
         background: red;
         color: white;
         font-size: 12px;
@@ -65,8 +78,9 @@
     }
 
     .hero {
-        background: rgb(237, 192, 253);
-        height: 150px;
+        background: rgb(215, 119, 250);
+        padding: 20px 0;
+        min-height: 150px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -74,27 +88,63 @@
         color: #000000;
     }
 
+    .hero .logo2 {
+        max-width: 150px;
+        height: auto;
+    }
+
+    .numbers {
+        display: flex;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .numbers a {
+        flex: 1;
+        text-align: center;
+        padding: 10px;
+        background: rgb(237, 192, 253);
+        border: 1px solid #ffffff;
+        text-decoration: none;
+        color: #000000;
+    }
+
     .content {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        display: flex;
+        flex-wrap: wrap;
         gap: 20px;
         padding: 20px;
+        justify-content: center;
     }
 
     .box {
-        background: #fff;
+        background: rgb(237, 192, 253);
         padding: 15px;
         border: 1px solid #ddd;
         text-align: center;
+        flex: 1 1 300px;
+        max-width: 350px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
     }
 
     .box img {
-        width: 70%;
+        max-width: 100%;
+        height: auto;
         margin-bottom: 10px;
     }
 
-    .box button {
-        padding: 10px 20px;
+    .controls {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+    button {
+        padding: 5px 15px;
         background: #c300ff;
         border: none;
         border-radius: 5px;
@@ -103,18 +153,31 @@
     }
 
     footer {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        display: flex;
         background: #000000;
-        color: rgb(195, 0, 255);
+        color: #c300ff;
         padding: 20px;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+
+    @media (max-width: 768px){
+        header {
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        nav {
+           font-size: 14px;
+           gap: 10px; 
+        }
     }
 </style>
 </head>
 <body>
 
 <header>
-    <img src="png\ithub.png" alt="" class="logo">
+    <a href=""><img src="png\ithub.png" alt="IThub" class="logo"></a>
     <nav>
         <a href="first.html">ГЛАВНАЯ</a>
         <a href="">О НАС</a>
@@ -131,9 +194,16 @@
 
 <div class="hero">
     <div>
-        <img src="png\ithub2.jpg" alt="" class="logo2">
+        <img src="png\ithub2.jpg" alt="IThub" class="logo2">
         <p>Изучаем языки программирования</p>
     </div>
+</div>
+
+<div class="numbers">
+    <a href="">Футболки</a>
+    <a href="">Свитшоты</a>
+    <a href="">Лонгсливы</a>
+    <a href="">Шопперы</a>
 </div>
 
 <div class="content">
@@ -165,6 +235,12 @@
             <button onclick="removeFromCart()">−</button>
             <button onclick="addToCart()">+</button>
         </div>
+    </div>
+
+    <div class="box">
+        <h1></h1>
+        <h2>Свитшот Скоро</h2>
+        <h3></h3>
     </div>
 </div>
 

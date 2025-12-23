@@ -6,6 +6,11 @@
 <title>IThub</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 <style>
+    main{
+        max-width: 100%;
+        background: rgb(215, 119, 250);
+    }
+
     * {
         box-sizing: border-box;
     }
@@ -17,30 +22,41 @@
     }
 
     header {
-        display: grid;
-        grid-template-columns: 1fr 2fr 1fr;
-        align-items: center;
+        display: flex;
         padding: 20px;
+        gap: 10px;
         background: #000000;
-        border-bottom: 1px solid #dbdbdb;
+        justify-content: space-between;
+        align-items: center;
     }
 
+    header .a{
+        max-width: 30%;
+        height: auto;
+    }
+    
+    .logo {
+        width: 100%;
+        height: auto;
+    }
 
-    header .logo {
-        background-color: #000000;
-        width: 30%;
+    .imglogo{
+        width: 150px;
+        display: flex;
     }
 
     nav {
         display: flex;
         justify-content: center;
-        gap: 10px;
+        flex-wrap: wrap;
+        gap: 20px;
         color: rgb(237, 192, 253);
         font-weight: bold;
     }
     
     .logo2{
-        width: 10%;
+        max-width: 150px;
+        height: auto;
     }
     
     nav a {
@@ -52,13 +68,10 @@
         color: #c300ff;
     }
 
-    header .search {
-        display: flex; 
-        justify-content: flex-end;
+    form{
+        display: flex;
     }
-
-
-    header .search button {
+    button {
         padding: 5px 10px;
         background: #c300ff;
         border: none;
@@ -68,7 +81,7 @@
     }
 
     .hero {
-        background: rgb(237, 192, 253);
+        background: rgb(215, 119, 250);
         height: 150px;
         display: flex;
         justify-content: center;
@@ -84,29 +97,39 @@
 
 
     .numbers {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        display: flex;
+        width: 100%;
         text-align: center;
         margin-bottom: 20px;
     }
 
     .numbers a {
-        text-decoration: none;
+        flex: 1;
+        text-align: center;
         padding: 10px;
-        background: #eee;
-        border: 1px solid #ddd;
+        background: rgb(237, 192, 253);
+        border: 1px solid #ffffff;
+        text-decoration: none;
+        color: #000000;
     }
 
     .content {
-        display: grid;
-        grid-template-columns: 2fr 1fr;
+        display: flex;
         gap: 20px;
         padding: 0 20px;
         margin-bottom: 20px;
     }
 
-    .content .left, .content .right {
-        display: grid;
+    .content .left {
+        flex: 2;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    .content .right {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
         gap: 20px;
     }
 
@@ -116,7 +139,7 @@
     }
 
     .box {
-        background: #fff;
+        background: rgb(237, 192, 253);
         padding: 15px;
         border: 1px solid #ddd;
     }
@@ -126,6 +149,7 @@
         height: auto;
         background: #ccc;
         margin-bottom: 10px;
+        display: block;
     }
     
     .box a{
@@ -133,18 +157,36 @@
     }
 
     footer {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        display: flex;
+        justify-content: space-between;
         background: #000000;
         color: #c300ff;
         padding: 20px;
+    }
+    @media (max-width: 768px){
+        header {
+            flex-direction: column;
+        }
+        
+        .content {
+            flex-direction: column;
+        }
+        
+        .numbers {
+            flex-direction: column;
+        }
+        
+        nav {
+           font-size: 14px;
+           gap: 10px; 
+        }
     }
 </style>
 </head>
 <body>
 <main>
 <header>
-    <a href=""><img src="png\ithub.png" alt="IThub" class="logo"></a>
+    <a href="" class="imglogo"><img src="png\ithub.png" alt="IThub" class="logo"></a>
     <nav>
         <a class="active" href="">ГЛАВНАЯ</a>
         <a href="">О НАС</a>
@@ -153,7 +195,7 @@
         <a href="merch.html">МЕРЧ</a>
         <a href="">КОНТАКТЫ</a>
     </nav>
-    <form class="search">
+    <form action="search">
         <input type="text" placeholder="Поиск">
         <button><i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i></button>
     </form>
