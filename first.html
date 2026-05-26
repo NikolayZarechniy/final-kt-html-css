@@ -18,7 +18,7 @@
         margin: 0;
         font-family: Arial, sans-serif;
         background: #f9f9f9;
-        color: #c300ff;
+        color: #000000;
     }
 
     header {
@@ -193,7 +193,7 @@
         <a href="">СЕРВИСЫ</a>
         <a href="">ПАРТНЕРЫ</a>
         <a href="merch.html">МЕРЧ</a>
-        <a href="">КОНТАКТЫ</a>
+        <a href="photo.html">ГАЛЕРЕЯ</a>
     </nav>
     <form action="search">
         <input type="text" placeholder="Поиск">
@@ -219,7 +219,7 @@
     <div class="left">
         <div class="box">
             <h3>САНКТ-ПЕТЕРБУРГ</h3>
-            <img src="png\lenpr.jpg" alt="Ленполиграфмаш Санкт-Петербург">
+            <img class="lenpro" src="png\lenpr.jpg" alt="Ленполиграфмаш Санкт-Петербург">
             <h3>Ленполиграфмаш</h3>
             <p>Общественное и деловое пространство «Ленполиграфмаш» на Петроградской — это направление бренда, которое содержит в себе не только технопарк, но также мастерские и шоурумы дизайнеров, галереи, офисы креативных компаний, культурных институций, кафе и рестораны, образовательные проекты, площадки для мероприятий.</p>
             <a href="">Узнать больше</a>
@@ -237,9 +237,9 @@
         </div>
         <div class="box">
             <h3>Наши клубы</h3>
-            <p>Волонтеры</p>
-            <p>Амбассадоры</p>
-            <p>MediaHub</p>
+            <a href=""><p>Волонтеры</p></a>
+            <a href=""><p>Амбассадоры</p></a>
+            <a href=""><p>MediaHub</p></a>
         </div>
         <div class="box">
             <h3>У вас остались вопросы?</h3>
@@ -261,4 +261,8 @@
 </footer>
 </main>
 </body>
+
+<script>
+    const lenproPng = document.querySelector(".lenpro")
+</script>
 </html>

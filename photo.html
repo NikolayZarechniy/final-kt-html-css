@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IThub</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+
+    <style>
+        /* ТВОИ СТИЛИ БЕЗ ИЗМЕНЕНИЙ */
+        main{
+            max-width: 100%;
+            background: rgb(215, 119, 250);
+            /* Добавлено для красивого размещения карусели */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+            min-height: calc(100vh - 80px); 
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f9f9f9;
+            color: #000000;
+        }
+
+        header {
+            display: flex;
+            padding: 20px;
+            gap: 10px;
+            background: #000000;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header .a{
+            max-width: 30%;
+            height: auto;
+        }
+        
+        .logo {
+            width: 100%;
+            height: auto;
+        }
+
+        .imglogo{
+            width: 150px;
+            display: flex;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            color: rgb(237, 192, 253);
+            font-weight: bold;
+        }
+        nav a {
+            text-decoration: none;
+            color: rgb(237, 192, 253);
+        }
+
+        nav a.active {
+            color: #c300ff;
+        }
+
+        /* СТИЛИ КАРУСЕЛИ */
+        .carousel-container {
+            background: #ffffff;
+            padding: 24px;
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        .carousel-container h2 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+
+        .main-preview {
+            width: 100%;
+            height: 300px;
+            border-radius: 12px;
+            overflow: hidden;
+            background-color: #f7f9fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+            border: 1px solid #e1e8ed;
+        }
+
+        .main-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.3s ease;
+        }
+
+        .carousel-wrapper {
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .track-container {
+            overflow: hidden;
+            width: 100%;
+            margin: 0 10px;
+        }
+
+        .carousel-track {
+            display: flex;
+            gap: 10px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .thumb {
+            width: 70px;
+            height: 70px;
+            border-radius: 8px;
+            cursor: pointer;
+            object-fit: cover;
+            border: 2px solid transparent;
+            transition: all 0.2s ease;
+            flex-shrink: 0;
+        }
+
+        .thumb:hover {
+            opacity: 0.8;
+        }
+
+        .thumb.active {
+            border-color: #c300ff; /* Изменено под цвет твоего активного пункта меню */
+            transform: scale(1.05);
+        }
+
+        .add-thumb-btn {
+            width: 70px;
+            height: 70px;
+            border-radius: 8px;
+            border: 2px dashed #c300ff;
+            background: #fbf0ff;
+            color: #c300ff;
+            font-size: 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            flex-shrink: 0;
+            transition: all 0.2s ease;
+        }
+
+        .add-thumb-btn:hover {
+            background: #f5d6ff;
+        }
+
+        .nav-btn {
+            background: #ffffff;
+            border: 1px solid #ccd6dd;
+            color: #333;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            user-select: none;
+            transition: all 0.2s ease;
+        }
+
+        .nav-btn:hover {
+            background: #f7f9fa;
+            border-color: #aab8c2;
+        }
+
+        #fileInput {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="first.html" class="imglogo"><img src="png\ithub.png" alt="IThub" class="logo"></a>
+        <nav>
+            <a href="first.html">ГЛАВНАЯ</a>
+            <a href="">О НАС</a>
+            <a href="">СЕРВИСЫ</a>
+            <a href="">ПАРТНЕРЫ</a>
+            <a href="merch.html">МЕРЧ</a>
+            <a class="active" href="">ГАЛЕРЕЯ</a>
+        </nav>
+        <form action="search">
+            <input type="text" placeholder="Поиск">
+            <button><i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i></button>
+        </form>
+    </header>
+
+    <main>
+        <div class="carousel-container">
+            <h2>Галерея изображений</h2>
+
+            <div class="main-preview">
+                <img id="mainImage" src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAF7v2gq1jXxZ1HzNnAy6rrau5HydLf2RIhPJZXnK3bdJbktSu6RuSPqRdINtUCHfjJ6ZRFlwBvVRG-OYryV9YJjI-eyNOOJ4ZO5bVccJt_RWakiBPyD5DG6sB__9UL2bzKYGvq0=s1360-w1360-h1020" alt="Выбранное фото">
+            </div>
+
+            <div class="carousel-wrapper">
+                <button class="nav-btn" id="prevBtn">&#10094;</button>
+                
+                <div class="track-container">
+                    <div class="carousel-track" id="carouselTrack">
+                        <img class="thumb active" src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAF7v2gq1jXxZ1HzNnAy6rrau5HydLf2RIhPJZXnK3bdJbktSu6RuSPqRdINtUCHfjJ6ZRFlwBvVRG-OYryV9YJjI-eyNOOJ4ZO5bVccJt_RWakiBPyD5DG6sB__9UL2bzKYGvq0=s1360-w1360-h1020" alt="Фото 1">
+                        <img class="thumb" src="https://optim.tildacdn.com/tild6334-3266-4332-b130-386538343336/-/format/webp/DSCF2238_resized.jpg.webp" alt="Фото 2">
+                        <img class="thumb" src="https://ithub.ru/vardata/modules/news/files/1/317/news_file_317_6481bdbb5d520.png" alt="Фото 3">
+                        <img class="thumb" src="https://avatars.mds.yandex.net/get-altay/13944697/2a000001969046f6ab259a28b4665dc721b9/L_height" alt="Фото 4">
+                        <img class="thumb" src="https://optim.tildacdn.com/tild6637-3366-4539-b133-653864343335/-/resize/642x/-/format/webp/DSC07819_1.jpg.webp" alt="Фото 5">
+                    </div>
+                </div>
+
+                <button class="nav-btn" id="nextBtn">&#10095;</button>
+            </div>
+
+            <input type="file" id="fileInput" accept="image/*">
+        </div>
+    </main>
+
+    <script>
+        const track = document.getElementById('carouselTrack');
+        const mainImage = document.getElementById('mainImage');
+        const fileInput = document.getElementById('fileInput');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+
+        let currentIndex = 0;
+
+        track.addEventListener('click', (e) => {
+            if (e.target.classList.contains('thumb')) {
+                setActiveImage(e.target);
+            }
+        });
+
+        function setActiveImage(thumbElement) {
+            document.querySelector('.thumb.active')?.classList.remove('active');
+            thumbElement.classList.add('active');
+            mainImage.src = thumbElement.src;
+
+            const thumbs = Array.from(document.querySelectorAll('.thumb'));
+            currentIndex = thumbs.indexOf(thumbElement);
+        }
+
+        fileInput.addEventListener('change', function() {
+            const file = this.files[0];
+            if (file) {
+                const reader = new FileReader();
+                
+                reader.onload = function(event) {
+                    const newThumb = document.createElement('img');
+                    newThumb.classList.add('thumb');
+                    newThumb.src = event.target.result;
+                    newThumb.alt = "Загруженное фото";
+
+                    const addBtn = track.querySelector('.add-thumb-btn');
+                    track.insertBefore(newThumb, addBtn);
+
+                    setActiveImage(newThumb);
+                    scrollToIndex(document.querySelectorAll('.thumb').length - 1);
+                };
+                
+                reader.readAsDataURL(file);
+            }
+            this.value = ''; 
+        });
+
+        function getThumbsCount() {
+            return document.querySelectorAll('.thumb').length;
+        }
+
+        function scrollToIndex(index) {
+            const thumbs = document.querySelectorAll('.thumb');
+            if (index >= 0 && index < thumbs.length) {
+                currentIndex = index;
+                setActiveImage(thumbs[currentIndex]);
+
+                const offset = currentIndex * (70 + 10);
+                const maxOffset = track.scrollWidth - track.parentElement.clientWidth;
+                track.style.transform = `translateX(-${Math.min(offset, maxOffset)}px)`;
+            }
+        }
+
+        prevBtn.addEventListener('click', () => {
+            if (currentIndex > 0) {
+                scrollToIndex(currentIndex - 1);
+            }
+        });
+
+        nextBtn.addEventListener('click', () => {
+            if (currentIndex < getThumbsCount() - 1) {
+                scrollToIndex(currentIndex + 1);
+            }
+        });
+    </script>
+</body>
+</html>
