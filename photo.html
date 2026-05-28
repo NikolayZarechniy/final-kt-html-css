@@ -258,28 +258,6 @@
             currentIndex = thumbs.indexOf(thumbElement);
         }
 
-        fileInput.addEventListener('change', function() {
-            const file = this.files[0];
-            if (file) {
-                const reader = new FileReader();
-                
-                reader.onload = function(event) {
-                    const newThumb = document.createElement('img');
-                    newThumb.classList.add('thumb');
-                    newThumb.src = event.target.result;
-                    newThumb.alt = "Загруженное фото";
-
-                    const addBtn = track.querySelector('.add-thumb-btn');
-                    track.insertBefore(newThumb, addBtn);
-
-                    setActiveImage(newThumb);
-                    scrollToIndex(document.querySelectorAll('.thumb').length - 1);
-                };
-                
-                reader.readAsDataURL(file);
-            }
-            this.value = ''; 
-        });
 
         function getThumbsCount() {
             return document.querySelectorAll('.thumb').length;
