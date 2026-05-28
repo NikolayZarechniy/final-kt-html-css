@@ -183,9 +183,14 @@
             border-color: #aab8c2;
         }
 
-        #fileInput {
-            display: none;
-        }
+        footer {
+        display: flex;
+        background: #000000;
+        color: #c300ff;
+        padding: 20px;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
     </style>
 </head>
 <body>
@@ -229,15 +234,23 @@
 
                 <button class="nav-btn" id="nextBtn">&#10095;</button>
             </div>
-
-            <input type="file" id="fileInput" accept="image/*">
         </div>
     </main>
+
+    <footer>
+    <div>
+        <h3>Контакты</h3>
+        <p>+79812782563 | saint_petersburg@it.hub.ru</p>
+    </div>
+    <div>
+        <h3>Социальные сети</h3>
+        <p><a href=""><i class="fa-brands fa-vk fa-xl" style="color: #c300ff;"></i></a>| <a href=""><i class="fa-brands fa-telegram fa-xl" style="color: #c300ff;"></i></a> | <a href=""><i class="fa-brands fa-tiktok fa-xl" style="color: #c300ff;"></i></a></p>
+    </div>
+</footer>
 
     <script>
         const track = document.getElementById('carouselTrack');
         const mainImage = document.getElementById('mainImage');
-        const fileInput = document.getElementById('fileInput');
         const prevBtn = document.getElementById('prevBtn');
         const nextBtn = document.getElementById('nextBtn');
 
